@@ -1,0 +1,393 @@
+@font-face{
+	font-family: pefforza;
+	src: url(../TitanOne-Regular.ttf);
+}
+
+body{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100vh;
+	display: flex;
+	margin: 0px;
+	align-items: center;
+	justify-content: center;
+}
+
+#sfondo1{
+	background-image: url(../img/sfondi/scelta1_2.png);
+}
+
+#sfondo2{
+	background-image: url(../img/sfondi/scelta2_2.png);
+}
+
+main{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+  	position: relative;
+	overflow: hidden;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  color: white;
+}
+
+.material-symbols-outlined:hover{
+  color: #ff6530;
+  box-shadow: 0 0 20px #1a2639;
+  cursor:pointer;
+}
+
+main > form{
+	position:absolute;
+  top:15px;
+  left:15px;
+	z-index: 2;
+	height: 16px;
+	width: 16px;
+}
+
+main > form > button:hover{
+    background: transparent;
+    box-shadow: none;
+}
+
+form:first-child > button{
+	background-color: transparent;
+}
+
+section{
+	width: 40%;
+	height: 90%;
+	position: relative;
+}
+
+article{
+	height: 100%;
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+#giocatore1 > article{
+	animation: s1 4s /*linear*/ normal;
+}
+
+#giocatore2 > article{
+	animation: s2 4s /*linear*/ normal;
+}
+
+.nome1{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 80%;
+	padding-bottom: 10px;
+}
+
+button:hover{
+  background-color: #ff6530;
+  box-shadow: 0 0 20px #1a2639;
+}
+
+.nome2{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 80%;
+	padding-bottom: 10px;
+}
+
+.nome2 > button:hover{
+  background-color: #ff6530;
+  box-shadow: 0 0 20px #1a2639;
+}
+
+input{
+	background-color: transparent;
+	border: none;
+	border-bottom: 5px solid white;
+	color: white;
+	outline: none;
+	font-family: pefforza;
+	font-size: larger;
+	padding: 10px;
+	width: 60%;
+}
+
+button{
+	height: 100%;
+	width: 100%;
+	margin-left: 5%;
+	cursor: pointer;
+	background-color: #1a2639;
+	color: white;
+	font-size: thin;
+	border: none;
+	border-radius: 10px;
+	font-family: pefforza;
+}
+
+form{
+	height: 80%;
+  width: 35%;
+}
+
+input::placeholder{
+	color: white;
+	opacity: 0.5;
+}
+
+.skin{
+	display: flex;
+	justify-content: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 60%;
+	width: 100%;
+}
+
+#giocatore1 > article > .skin{
+	background-image: url(../img/skin/amogus1.png);
+}
+
+#giocatore2 > article > .skin{
+	background-image: url(../img/skin/amogus1.png);
+	transform: scaleX(-1);
+}
+
+.griglia{
+	background-color: #3e4a61;
+	border-radius: 20px;
+	box-shadow: 0 0 10px black;
+	padding: 5%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	overflow-y: hidden;
+	overflow-x: scroll;
+	height: 100px;
+	width: 80%;
+}
+
+.griglia > img:hover{
+  box-shadow: 0 0 20px black;
+  cursor:pointer;
+}
+
+.griglia::-webkit-scrollbar{
+	background-color: #1a2639;
+	border-radius: 0px 0px 20px 20px;
+}
+
+.griglia::-webkit-scrollbar-thumb{
+	background-color: darkgrey;
+	border-radius: 20px;
+	margin: 20px;
+	box-shadow: 0 0 10px grey;
+}
+
+.griglia::-webkit-scrollbar-track-piece{
+	margin: 20px;
+}
+
+.griglia > img{
+	width: 100px;
+	height: auto;
+	background-color: #ff6530;
+	padding: 5px;
+	margin: 5px;
+	border-radius: 5px;
+}
+
+#vs{
+	height: 100%;
+	width: 5%;
+	background: linear-gradient(to bottom, #ff6530, #e89478);
+	opacity: 0.6;
+  animation: vsV 2s /*linear*/ normal;
+	position: relative;
+}
+
+.vsS{
+	height: 300%;
+	width: 5%;
+	/*background: linear-gradient(to bottom, #ff6530, #e89478);
+	display: flex;
+	justify-content: center;
+	align-items: center;*/
+	background-image: url(../img/elementi/verSUSv.png);
+	background-size: contain;
+	visibility: hidden;
+	animation: versusv 5s linear 1s infinite;
+	position: fixed;
+}
+
+@keyframes versusv{
+	0%{
+		background-position: bottom;
+		visibility: visible;
+	}
+
+	100%{
+		background-position: top;
+		visibility: visible;
+	}
+}
+
+@keyframes versuso{
+	0%{
+		background-position: left;
+		visibility: visible;
+	}
+
+	100%{
+		background-position: right;
+		visibility: visible;
+	}
+}
+
+@keyframes vsV{
+    0%{
+        width: 200%;
+		position: absolute;
+		opacity: 1;
+    }
+
+    50%{
+		width: 5%;
+		opacity: 1;
+    }
+
+	100%{
+		position: unset;
+		opacity: 0.6;
+	}
+}
+
+@keyframes vsO{
+    0%{
+    	height: 200%;
+			position: absolute;
+			opacity: 1;
+    }
+
+    50%{
+			height: 5%;
+			opacity: 1;
+    }
+
+	100%{
+		position: unset;
+		opacity: 0.6;
+	}
+}
+
+@keyframes s1{
+	0%{
+		visibility: hidden;
+	}
+
+	25%{
+		position: absolute;
+		right: 2000px;
+		visibility: hidden;
+	}
+
+	50%{
+		position: absolute;
+		right: 0px;
+		visibility: visible;
+	}
+
+	100%{
+		position: unset;
+	}
+}
+
+@keyframes s2{
+	0%{
+		visibility: hidden;
+	}
+
+	25%{
+		position: absolute;
+		left: 2000px;
+		visibility: hidden;
+	}
+
+	50%{
+		position: absolute;
+		left: 0px;
+		visibility: visible;
+	}
+
+	100%{
+		position: unset;
+	}
+}
+
+@media screen and (max-width: 500px){
+
+	#giocatore1 > article{
+		animation: s2 4s linear normal;
+	}
+	
+	#giocatore2 > article{
+		animation: s1 4s linear normal;
+	}
+	
+	main{
+		flex-direction: column;
+	}
+
+	main > form{
+		top: 5px;
+  	left: 0px;
+	}
+
+	section{
+		height: 45%;
+		width: 100%;
+	}
+
+	#vs{
+		height: 5%;
+		width: 100%;
+		margin: 2.5% 0% 2.5% 0%;
+		animation: vsO 2s linear normal;
+	}
+
+	.vsS{
+		height: 5%;
+		width: 300%;
+		background-image: url(../img/elementi/verSUSo.png);
+		animation: versuso 5s linear 1s infinite;
+	}
+
+	.nome2{
+		justify-content: flex-start;
+	}
+
+	.griglia.griglia::-webkit-scrollbar{
+		display: none;
+	}
+
+	.griglia > img{
+		width: 75px;
+	}
+
+	
+}

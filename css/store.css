@@ -1,0 +1,297 @@
+@font-face{
+	font-family: pefforza;
+	src: url(../TitanOne-Regular.ttf);
+}
+
+html{
+	background-color: #393e46 ;
+}
+
+body{
+	background-image: url(../img/sfondi/store.png);
+	background-size: cover;
+	background-attachment: fixed;
+	margin: 0px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  color: white;
+}
+
+.material-symbols-outlined:hover{
+  color: #ff6530;
+  box-shadow: 0 0 10px #1a2639;
+  cursor:pointer;
+}
+
+body > form{
+	position:absolute;
+  top:15px;
+  left:15px;
+	z-index: 2;
+	height: 16px;
+	width: 16px;
+	
+}
+
+form:first-child > button{
+	background-color: transparent;
+	border: none;
+}
+
+*{
+	font-family: pefforza;
+}
+
+header{
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background: linear-gradient(to bottom right, #1a2639, #ad2b00);
+	border-radius: 0% 0% 100% 100%;
+	position: relative;
+}
+
+.titolo{
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.titolo > h1{
+	font-size: 70px;
+	position: absolute;
+	z-index: 2;
+	color: white;
+	/*background-color: #1a2639;
+	border-radius: 30px;
+	padding: 10px 50px 10px 50px;*/
+}
+
+nav{
+	position: absolute;
+	visibility: hidden;
+}
+
+.link{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+
+.link > a{
+	text-decoration: none;
+	color: white;
+	font-size: 40px;
+}
+
+	
+header:hover > nav{
+	animation: nav1 1s normal;
+	width: 60%;
+	visibility: visible;
+}
+
+
+.link > a:hover{
+	color: grey;
+}
+
+
+main{
+	margin: 25px;
+}
+
+section{
+	display:flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+article{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	border-radius: 10px;
+	background-color:	 rgb(26, 38, 57, 0.5);
+	padding: 25px;
+}
+/*
+article:nth-child(2){
+	border: 3px solid #507b95;
+}
+
+article:nth-child(4){
+	border: 3px solid #509558;
+}
+
+article:nth-child(6){
+	border: 3px solid #bcbe4b;
+}
+*/
+.sg{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0 10px black;
+	padding: 10px;
+	width: 125px;
+	height: 200px;
+	border-radius: 20px;
+	margin: 10px;
+	color: white;
+	font-size: 14px;
+}
+
+.sg:hover{
+  cursor:pointer;
+}
+
+#rare > .sg{
+	background: linear-gradient(to bottom, #1a2639, #509558);
+}
+
+#rare > .sg:hover{
+	background: linear-gradient(to top, #1a2639, #509558);
+}
+
+#normal > .sg{
+	background: linear-gradient(to bottom, #1a2639, #507b95);
+}
+
+#normal > .sg:hover{
+	background: linear-gradient(to top, #1a2639, #507b95);
+}
+
+#epic > .sg{
+	background: linear-gradient(to bottom, #1a2639, #bcbe4b);
+}
+
+#epic > .sg:hover{
+	background: linear-gradient(to top, #1a2639, #bcbe4b);
+}
+
+.sg > img{
+	width: 90%;
+	height: auto;
+	margin-bottom: 10px;
+}
+/*
+.sg-info{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-shadow: 1px 1px 5px black;
+}*/
+/*
+.sg-info > p{
+	margin: 0px;
+}*/
+
+.sg > p{
+	margin: 0px;
+}
+
+.prezzo{
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	width: 100%;
+	justify-content: flex-end;
+}
+
+.prezzo > img{
+	height: 32px;
+	width: 32px;
+}
+
+h2{
+	text-shadow: 1px 1px 2px black;
+	font-size: 30px;
+	margin: 15px 0px 15px 0px;
+	height: 40px;
+	width: 95%;
+	padding-left: 5%;
+}
+
+h2:nth-child(1){
+	color: #507b95;
+	border-bottom: 3px solid #507b95;
+}
+
+h2:nth-child(3){
+	color: #509558;
+	border-bottom: 3px solid #509558;
+}
+
+h2:nth-child(5){
+	color: #bcbe4b;
+	border-bottom: 3px solid #bcbe4b;
+}
+
+@keyframes nav1{
+	0%{
+		width: 30%;
+		visibility: hidden;
+	}
+
+	100%{
+		width: 60%;
+		visibility: visible;
+	}
+}
+
+@keyframes nav2{
+	0%{
+		width: 45%;
+		visibility: hidden;
+	}
+
+	100%{
+		width: 80%;
+		visibility: visible;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.titolo > h1{
+		font-size: 30px;
+	}
+
+	.link > a{
+		font-size: 20px;
+	}
+
+	header:hover > nav{
+		animation: nav2 2s normal;
+		width: 80%;
+		visibility: visible;
+	}
+}
+
+@media screen and (max-width: 500px){
+	body{
+		margin: 0px;
+	}
+
+	main{
+		margin: 10px;
+	}
+
+	article{
+		justify-content: space-around;
+		padding: 0px;
+	}
+}
