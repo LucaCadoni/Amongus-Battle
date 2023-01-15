@@ -32,15 +32,21 @@ body{
     background-color: #393e46;
     border-radius: 10px;
     box-shadow: 0 0 20px black;
-    height: 30%;
-    width: 20%;
+    height: 40%;
+    width: 30%;
     position: fixed;
-    top: 30%;
-    left: 40%;
+    top: 25%;
+    left: 35%;
+    z-index: 2;
+}
+
+#menu > h2{
+    font-family: pefforza;
+    animation: Color 2s linear infinite;
 }
 
 #menu > button{
-    height: 20%;
+    height: 60px;
     width: 50%;
     margin: 10px;
     padding: 0px;
@@ -50,6 +56,7 @@ body{
     box-shadow: 0 0 10px black;
     border: none;
     color: white;
+    font-size: large;
 }
 
 #pausa > .material-symbols-outlined{
@@ -66,6 +73,10 @@ body{
 
 #pausa:focus{
     background: transparent;
+    height: 100%;
+    width: 20%;
+    left: 40%;
+    top: 0%;
 }
 
 #pausa:focus + #menu{
@@ -75,6 +86,7 @@ body{
     justify-content: center;
     flex-direction: column;
 }
+
 
 main{
     height: 100%;
@@ -95,41 +107,92 @@ section{
 }
 
 #barra1, #barra2{
-    /*height: 5%;*/
     height: 40px;
     width: 45%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: fixed;
-    top: 10px;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.b1, .b2{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.b2{
+    margin-top: 7px;
+}
+
+
+.b2 > .material-symbols-outlined{
+    font-variation-settings:
+    'FILL' 10,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+    color: rgb(47, 156, 219);
 }
 
 #barra1{
     left: 0px;
+    align-items: flex-start;
 }
 
 #barra2{
     right: 0px;
+    align-items: flex-end;
 }
 
 .vita{
     width: 80%;
-    height: 50%;
+    height: 90%;
     border: 5px solid rgb(51, 0, 0);
     background-color: rgb(184, 0, 0);
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
-#barra1 > .vita > p{
+.flash{
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(to right, rgb(255, 255, 255, 0), rgb(226, 86, 86), rgb(255, 255, 255, 0));
+    position: absolute;
+    z-index: 0;
+    visibility: hidden;
+}
+
+#barra1 > .b1 > .vita > .flash{
+    animation: flash1 5s linear 2s infinite;
+}
+
+#barra2 > .b1 > .vita > .flash{
+    animation: flash2 5s linear 2s infinite;
+}
+
+.punti{
+    width: 70%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(47, 156, 219);
+    border: 3px solid rgb(0, 23, 39);
+}
+
+#barra1 > .b1 > .vita > p{
     margin-left: 10px;
 }
  
-#barra2 > .vita > p{
+#barra2 > .b1 > .vita > p{
     margin-right: 10px;
 }
- 
 
 .vita > p{
     margin: 0px;
@@ -137,19 +200,62 @@ section{
     color: white;
 }
 
-#barra1 > img, #barra2 > img{
+.b1 > img, .b2 > img{
     height: auto;
-    width: 10%;
+    width: 8%;
 }
 
-#barra1 > .vita{
+#barra1 > .b1 > .vita{
     transform: skew(-20deg);
 }
 
-#barra2 > .vita{
+#barra2 > .b1 > .vita{
     transform: skew(20deg);
     justify-content: flex-end;
 }
+
+#barra1 > .b2 > .punti{
+    transform: skew(-20deg);
+    margin-left: 10px;
+}
+
+#barra2 > .b2 > .punti{
+    transform: skew(20deg);
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+#punti1, #punti2{
+    width:fit-content;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: pefforza;
+    font-size: 30px;
+    position: fixed;
+    visibility: hidden;
+    text-shadow: 0 0 5px #1a2639;
+}
+
+#punti1{
+    top: 30%;
+    left: 30%;
+}
+
+#punti2{
+    top: 30%;
+    right: 30%;
+}
+
+#punti1 > .material-symbols-outlined, #punti2 > .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 10,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+
 
 .game{
     height: 100%;
@@ -235,22 +341,18 @@ button > img{
     width: auto;
 }
 
-button:active{
-    background-color: #ff6530;
-}
-
- .livella > .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 10,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48;
-  transform: scale(90%);
-  color: white;
-  position: absolute;
-  bottom: -4px;
-  left: 0px;
-  animation: freccia 3s linear infinite;
+.livella > .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 10,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+    transform: scale(90%);
+    color: white;
+    position: absolute;
+    bottom: -4px;
+    left: 0px;
+    animation: freccia 3s linear infinite;
 }
 
 .game:has( .comandi > .bottoni > .salto:focus) > .skin > .corpo{
@@ -268,6 +370,21 @@ button:active{
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    position: relative;
+}
+
+#azione{
+    position: absolute;
+    z-index: 2;
+    bottom: 10px;
+    height: 14%;
+    width: 12%;
+    border: none;
+    border-radius: 20px;
+    background-color: #3e4a61;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .base{
@@ -309,6 +426,343 @@ button:active{
 
 #giocatore2 > .game > .skin > .corpo > img{
     transform: scaleX(-1);
+}
+
+.abilita{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.animazioneSardo, .animazioneMaranza{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.animazioneSardo > img, .animazioneMaranza > img{
+    height: 200px;
+    width: auto;
+    position: absolute;
+    bottom: 20%;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.animazioneMaranza > img{
+    right: 70%;
+    bottom: 0%;
+}
+
+
+.animazioneMaranza > div{
+    height: 40%;
+    width: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 20%;
+    right: 100%;
+    z-index: 1;
+}
+
+#giocatore1 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneSardo img{
+    animation: sardoO 2s linear normal;
+}
+
+#giocatore2 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneMaranza > img{
+    animation: cassa 2s linear normal;
+}
+
+#giocatore2 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneMaranza > div{
+    width: 100%;
+    transition: 1s;
+    transition-delay: 1s
+}
+
+#giocatore2 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneMaranza > div > img{
+    animation: onda 1s linear 1s normal;
+}
+
+main:has(> #giocatore1 > .game > .skin > #azione:focus) > #punti1{
+    animation: piu 3s linear 3s normal;
+}
+
+main:has(> #giocatore1 > .game > .skin > #azione:focus) > #punti1 > p::after{
+    content: "+ 104";
+}
+
+main:has(> #giocatore1 > .game > .skin > #azione:focus) > #punti2{
+    animation: meno 3s linear 3s normal;
+}
+
+main:has(> #giocatore1 > .game > .skin > #azione:focus) > #punti2 > p::after{
+    content: "- 69";
+}
+
+main:has(> #giocatore2 > .game > .skin > #azione:focus) > #punti1{
+    animation: meno 3s linear 2s normal;
+}
+
+main:has(> #giocatore2 > .game > .skin > #azione:focus) > #punti1 > p::after{
+    content: "- 69";
+}
+
+main:has(> #giocatore2 > .game > .skin > #azione:focus) > #punti2{
+    animation: piu 3s linear 2s normal;
+}
+
+main:has(> #giocatore2 > .game > .skin > #azione:focus) > #punti2 > p::after{
+    content: "+ 104";
+}
+
+#giocatore1 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneSardo > img:nth-child(1){
+    animation-delay: 0s;
+}
+
+#giocatore1 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneSardo > img:nth-child(2){
+    animation-delay: 0.4s;
+}
+
+#giocatore1 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneSardo > img:nth-child(3){
+    animation-delay: 0.8s;
+}
+
+#giocatore1 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneSardo > img:nth-child(4){
+    animation-delay: 1.2s;
+}
+
+#giocatore1 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneSardo > img:nth-child(5){
+    animation-delay: 1.6s;
+}
+
+#giocatore1 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneSardo > img:nth-child(6){
+    animation-delay: 2s;
+}
+
+.animazioneMaranza > div > img{
+    visibility: hidden;
+}
+
+.animazioneMaranza > div > img:nth-child(1){
+    height: 100%;
+    width: auto;
+}
+
+.animazioneMaranza > div > img:nth-child(2){
+    height: 80%;
+    width: auto;
+}
+
+.animazioneMaranza > div > img:nth-child(3){
+    height: 60%;
+    width: auto;
+}
+.animazioneMaranza > div > img:nth-child(4){
+    height: 40%;
+    width: auto;
+}
+
+button:active, #azione:active{
+    background-color: #ff6530;
+    transform: scale(110%);
+    transition: 0.05s;
+}
+
+@keyframes flash1{
+    0%{
+        left: 0%;
+        visibility: visible;
+    }
+
+    30%{
+        left: 110%;
+        visibility: visible;
+    }
+
+    31%{
+        visibility: hidden;
+    }
+
+    100%{
+        visibility: hidden;
+    }
+}
+
+@keyframes flash2{
+    0%{
+        right: 0%;
+        visibility: visible;
+    }
+
+    30%{
+        right: 110%;
+        visibility: visible;
+    }
+
+    31%{
+        visibility: hidden;
+    }
+
+    100%{
+        visibility: hidden;
+    }
+}
+
+@keyframes piu {
+    0%{
+        visibility: visible;
+        color: rgb(77, 158, 77);
+        opacity: 0;
+    }
+
+    50%{
+        visibility: visible;
+        color: rgb(77, 158, 77);
+        opacity: 1;
+    }
+
+    90%{
+        visibility: visible;
+        color: rgb(77, 158, 77);
+        opacity: 1;
+    }
+
+    100%{
+        visibility: visible;
+        color: rgb(77, 158, 77);
+        opacity: 0;
+    }
+}
+
+@keyframes meno {
+    0%{
+        visibility: visible;
+        color: rgb(204, 78, 78);
+        opacity: 0;
+    }
+
+    50%{
+        visibility: visible;
+        color: rgb(204, 78, 78);
+        opacity: 1;
+    }
+
+    90%{
+        visibility: visible;
+        color: rgb(204, 78, 78);
+        opacity: 1;
+    }
+
+    100%{
+        visibility: visible;
+        color: rgb(204, 78, 78);
+        opacity: 0;
+    }
+}
+
+@keyframes sardoO{
+    0%{
+      visibility: hidden;
+      left: 50%;
+      bottom: 20%;  
+    }
+
+    25%{
+        visibility: visible;
+        left: 40%;
+    }
+
+    50%{
+        visibility: visible;
+        left: 100%;
+        bottom: 60%;
+    }
+
+    75%{
+        visibility: visible;
+        left: 135%;
+        bottom: 40%;
+    }
+
+    100%{
+        visibility: hidden;
+        left: 170%;
+        bottom: 20%;
+    }
+}
+
+@keyframes sardoV{
+    0%{
+      visibility: hidden;
+      bottom: 50%;
+      left: 20%;  
+    }
+
+    25%{
+        visibility: visible;
+        left: 40%;
+    }
+
+    50%{
+        visibility: visible;
+        bottom: 100%;
+        left: 60%;
+    }
+
+    75%{
+        visibility: visible;
+        bottom: 135%;
+        left: 40%;
+    }
+
+    100%{
+        visibility: hidden;
+        bottom: 180%;
+        left: 20%;
+    }
+}
+
+
+@keyframes cassa{
+    0%{
+        visibility: visible;
+        height: 0%;
+    }
+
+    50%{
+        visibility: visible;
+        height: 50%;
+    }
+
+    95%{
+        visibility: visible;
+        height: 50%;
+    }
+
+    100%{
+        visibility: hidden;
+        height: 50%;
+    }
+}
+
+@keyframes onda{
+    0%{
+        visibility: visible;
+        opacity: 0;
+    }
+
+    50%{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    100%{
+        visibility: hidden;
+    }
 }
 
 
@@ -354,6 +808,20 @@ button:active{
     }
 }
 
+@keyframes Color {
+    0%{
+        color: #1a2639;
+    }
+
+    50%{
+        color: white;
+    }
+
+    100%{
+        color: #1a2639;
+    }
+}
+
 @media screen and (max-width: 768px){
     #pausa{
         top: 10px;
@@ -362,9 +830,10 @@ button:active{
     }
 
     #menu{
-        width: 40%;
-        top: 35%;
-        left: 30%;
+        width: 50%;
+        top: 30%;
+        height: 40%;
+        left: 25%;
     }
 
     .bottoni > button{
@@ -389,14 +858,58 @@ button:active{
         transform: rotate(90deg);
         width: 50%;
         top: 45%;
-        left: -20%;
+        left: -18%;
     }
 
     #barra2{
         transform: rotate(-90deg);
         width: 50%;
         top: 45%;
-        right   : -20%;
+        right: -18%;
+    }
+
+    #punti1{
+        top: 10%;
+        left: 10%;
+    }
+    
+    #punti2{
+        bottom: 10%;
+        top: auto;
+        right: 10%;
+    }
+
+    #animazioneSardo{
+        rotate: -90deg;
+    }
+
+    .animazioneSardo > img{
+        transform: rotate(90deg) scaleX(-1);
+        height: 50%;
+        width: auto;
+        position: absolute;
+        left: 20%;
+    }
+
+    .animazioneMaranza > img{
+        right: auto;
+        bottom: 80%;
+    }
+
+    .animazioneMaranza > div{
+        rotate: 90deg;
+        width: 40%;
+        height: 0%;
+        bottom: 150%;
+        right: auto;
+    }
+
+    #giocatore2 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneMaranza > div{
+        height: 100%;
+    }
+
+    #giocatore1 > .game > .skin:has( > #azione:focus) > .abilita > .animazioneSardo img{
+        animation: sardoV 2s linear normal;
     }
 
     .game{
