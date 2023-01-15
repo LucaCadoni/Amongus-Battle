@@ -29,10 +29,10 @@ body{
 
 #menu{
     display: none;
-    background-color: #393e46;
+    background: linear-gradient(to right bottom, #393e46, #1a2639, #3e4a61);
     border-radius: 10px;
     box-shadow: 0 0 20px black;
-    height: 40%;
+    height: 50%;
     width: 30%;
     position: fixed;
     top: 25%;
@@ -45,10 +45,15 @@ body{
     animation: Color 2s linear infinite;
 }
 
-#menu > button{
-    height: 60px;
+#menu > form{
+    height: 15%;
     width: 50%;
     margin: 10px;
+}
+
+#menu > form > button{
+    height: 100%;
+    width: 100%;
     padding: 0px;
     background-color: #1a2639;
     border-radius: 20px;
@@ -87,6 +92,21 @@ body{
     flex-direction: column;
 }
 
+#pausa:hover + #menu{
+    display: none;
+}
+
+#menu:hover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+#menu:hover ~ main{
+    opacity: 0.5;
+}
 
 main{
     height: 100%;
