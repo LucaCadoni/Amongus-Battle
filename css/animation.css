@@ -1,0 +1,107 @@
+@keyframes scaleRotate{
+    0%{
+        transform: scaleX(1);
+    }
+
+    50%{
+        transform: scaleX(-1);
+    }
+
+    100%{
+        transform: scaleX(1);
+    }
+}
+
+@keyframes vibration{
+    0%{
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50%{
+        transform: translateY(-5px) rotate(-10deg);
+    }
+
+    60%{
+        transform: translateY(-5px) rotate(10deg);
+    }
+
+    70%{
+        transform: translateY(-5px) rotate(-10deg);
+    }
+
+    100%{
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate2{
+    0%{
+        transform: rotate(0deg) translate(0) rotate(360deg);
+    }
+
+    100%{
+        transform: rotate(360deg) translate(1) rotate(0deg);
+    }
+}
+
+@keyframes s1A{
+    0%{
+        position: absolute;
+        top: 200%;
+    }
+
+    40%{
+        position: absolute;
+        top: 0%;
+    }
+}
+
+@keyframes s2A{
+    0%{
+        visibility: hidden;
+        position: absolute;
+        top: 200%;
+    }
+
+    5%{
+        visibility: hidden;
+        position: absolute;
+        top: 200%;
+    }
+
+    100%{
+        visibility: visible;
+        position: absolute;
+        top: 0%;
+    }
+}
+
+@keyframes s3A{
+    0%{
+        visibility: hidden;
+        position: absolute;
+        top: 200%;
+    }
+
+    25%{
+        visibility: hidden;
+        position: absolute;
+        top: 200%;
+    }
+
+    100%{
+        visibility: visible;
+        position: absolute;
+        top: 52%;
+    }
+}

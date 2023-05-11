@@ -1,0 +1,160 @@
+@font-face{
+    font-family: "NewFont1";
+    src: url(../font/IntroDemo-BlackCAPS.ttf);
+}
+
+@font-face{
+    font-family: "NewFont2";
+    src: url(../font/GloberDemo-SemiBold.otf);
+}
+
+*{
+    font-family: "NewFont1";
+    font-weight: 100px;
+}
+
+body{
+    margin: 0px;
+    height: 100vh;
+    background-image: url(../img/sfondi/store.jpg);
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    backdrop-filter: brightness(60%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-size: 60px;
+    color: white;
+    text-shadow: 0 2px 0 purple;
+    margin: 0px;
+    padding-left: 1%;
+}
+
+.back{
+    font-size: 25px;
+    vertical-align: center;
+    color: white;
+    transition-duration: 0.5s;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+}
+
+.back:hover{
+    transform: scale(1.5);
+}
+
+header{
+    height: 15%;
+    width: 96%;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid white;
+}
+
+main{
+    height: 85%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.container1, .container2{
+    height: 90%;
+    width: 48%;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.container1{
+    justify-content: center;
+}
+
+.container2{
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.s2, .s3{
+    height: 48%;
+}
+
+.s1, .s2, .s3{
+    /*box-shadow: 0 0 10px black;*/
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.s1{
+    height: 100%;
+    background: linear-gradient(to right top, #800080d0, #150629d0);
+    animation: s1A 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    /*animation: name duration timing-function delay iteration-count direction fill-mode;*/
+}
+
+.s2{
+    background: linear-gradient(to right top, #0f043fd0, #000116d0);
+    animation: s2A 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.s3{
+    background: linear-gradient(to right top, #042747d0, #01202ed0);
+    animation: s3A 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.s1 > h2, .s2 > h2, .s3 > h2{
+    color: white;
+    font-size: 50px;
+    padding-left: 10%;
+    margin-bottom: 0px;
+}
+
+.s1 > p, .s2 > p, .s3 > p{
+    color: white;
+    font-family: "NewFont2";
+    letter-spacing: 1px;
+    padding-left: 10%;
+    font-size: 20px;
+    font-weight: 100;
+    margin: 0px;
+}
+
+#animeSkin{
+    position: absolute;
+    height: 150%;
+    width: fit-content;
+    top: 0%;
+    rotate: -10deg;
+    right: -30%;
+    transform: translateX(-30%);
+    transition-duration: 1s;
+    z-index: 0;
+}
+
+#animeWeap{
+    position: absolute;
+    height: 120%;
+    width: fit-content;
+    top: 0%;
+    rotate: -10deg;
+    right: -30%;
+    transform: translateX(-30%);
+    transition-duration: 1s;
+    z-index: 0;
+}
+
+#animeSkin > img, #animeWeap > img{
+    height: 100%;
+    width: auto;
+    transform: scaleX(-1);
+    filter: brightness(0.8);
+}

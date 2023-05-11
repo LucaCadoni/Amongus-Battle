@@ -1,0 +1,437 @@
+@font-face {
+    font-family: "peffo";
+    src: url(../font/IntroDemo-BlackCAPS.ttf);
+}
+
+body{
+    height: 100vh;
+    margin: 0px;
+    position: relative;
+    background-image: url(../img/sfondi/sfondo1.jpg);
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: brightness(0.7);
+    overflow: hidden;
+}
+
+#amogus1, #amogus2{
+    height: 20%;
+    width: 10%;
+    position: fixed;
+    visibility: hidden;
+}
+
+#amogus2{
+    transform: scaleX(-1);
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+}
+
+.container > img{
+    height: 50%;
+    width: auto;
+    opacity: 0;
+}
+
+.sAnime{
+    animation: spawn 1s linear normal;
+}
+
+.pAnime{
+    animation: spawn2 1s normal;
+}
+
+#spawn2, #spawn1{
+    height: 80%;
+    width: 0%;
+    position: absolute;
+    z-index: -1;
+}
+
+#spawn1{
+    background: linear-gradient(to bottom, #ffffff00, red );
+}
+
+#spawn2{
+    background: linear-gradient(to bottom, #ffffff00, blue );
+    
+}
+
+
+#base1, #base2{
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/elementi/terra.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 5%;
+    z-index: -1;
+}
+
+.bullet1, .bullet2{
+    height: 2vw;
+    width: 2vw;
+    background-size:contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 99;
+    border-radius: 2vw;
+    /*visibility: hidden;*/
+}
+
+.bullet2{
+    transform: scaleX(-1);
+}
+
+.bullet1{
+    background-image: url(../img/gun/crab.png);
+}
+
+.bullet2{
+    background-image: url(../img/gun/hand-grenade.png);
+}
+/*
+#btnS1, #btnS2{
+    height: 50%;
+    width: 50%;
+    border-radius: 50px; 
+    background-color: black;
+    color: white;
+    border: none;   
+}
+
+#btnS1:active, #btnS2:active{
+    transform: scale(1.1);
+}*/
+
+#livella1, #livella2{
+    /*bottom: -20%;*/
+    height: 15%;
+    width: 150%;
+    border-radius: 2.1vh;
+    border: 0.25vw solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#livella1 > div, #livella2 > div{
+    height: 100%;
+}
+
+.rosso{
+    background-color: rgb(204, 78, 78);
+    width: 25%;
+}
+
+.giallo{
+    background-color: rgb(211, 211, 115);
+    width: 20%;
+}
+
+.verde{
+    background-color: rgb(77, 158, 77);
+    width: 10%;
+}
+
+#livella1 > div:first-child{
+    border-radius: 1.8vh 0 0 1.8vh;
+}
+
+#livella1 > div:nth-child(5){
+    border-radius: 0 1.8vh 1.8vh 0 ;
+}
+
+#livella2 > div:first-child{
+    border-radius: 1.8vh 0 0 1.8vh ;
+}
+
+#livella2 > div:nth-child(5){
+    border-radius: 0 1.8vh 1.8vh 0 ;
+}
+
+.puntatore{
+    position: absolute;
+    bottom: -1vh;
+    color: white;
+    text-shadow: 0 0 10px purple;
+    left: -30%;
+}
+
+.puntatore.material-symbols-outlined{
+    font-size: 1.5vw;
+}
+
+
+@keyframes spawn{
+    0%{
+        width: 0%;
+    }
+
+    50%{
+        width: 100%;
+    }
+
+    100%{
+        width: 0%;
+    }
+}
+
+@keyframes spawn2{
+    30%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+/*CSS DELLA VITA*/
+
+#barra1, #barra2{
+    height: 10vh;
+    width: 45%;
+    position: fixed;
+    top: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.b1, .b2{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.b2{
+    margin-top: 7px;
+}
+
+
+#barra1{
+    left: 0px;
+    align-items: flex-start;
+}
+
+#barra2{
+    right: 0px;
+    align-items: flex-end;
+}
+
+#nome1, #nome2{
+    color: white;
+    position: absolute;
+    font-family: "peffo";
+}
+
+.vita{
+    width: 80%;
+    height: 70%;
+    border: 0.3vw solid rgb(51, 0, 0);
+    background-color: rgb(164, 164, 164);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.moulaga > p{
+    margin: 0;
+}
+
+
+
+#barra1 > .b1 > .vita > .flash{
+    animation: flash1 5s linear 2s infinite;
+}
+
+#barra2 > .b1 > .vita > .flash{
+    animation: flash2 5s linear 2s infinite;
+}
+
+.punti{
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(47, 156, 219);
+    border: 0.3vw solid rgb(0, 23, 39);
+}
+
+#barra1 > .b1 > .vita > p{
+    margin-left: 10px;
+}
+ 
+#barra2 > .b1 > .vita > p{
+    margin-right: 10px;
+}
+
+.vita > p{
+    margin: 0px;
+    font-family: pefforza;
+    color: white;
+}
+
+#barra1 > .b1 > .vita{
+    transform: skew(-20deg);
+}
+
+#barra2 > .b1 > .vita{
+    transform: skew(20deg);
+    justify-content: flex-end;
+}
+
+#barra1 > .b2 > .punti{
+    transform: skew(-20deg);
+    margin-left: 10px;
+}
+
+#barra2 > .b2 > .punti{
+    transform: skew(20deg);
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.flash{
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(to right, rgb(255, 255, 255, 0), #ffffff80, rgb(255, 255, 255, 0));
+    position: absolute;
+    z-index: 0;
+    visibility: hidden;
+}
+
+
+
+@keyframes flash1{
+    0%{
+        left: 0%;
+        visibility: visible;
+    }
+
+    30%{
+        left: 110%;
+        visibility: visible;
+    }
+
+    31%{
+        visibility: hidden;
+    }
+
+    100%{
+        visibility: hidden;
+    }
+}
+
+@keyframes flash2{
+    0%{
+        right: 0%;
+        visibility: visible;
+    }
+
+    30%{
+        right: 110%;
+        visibility: visible;
+    }
+
+    31%{
+        visibility: hidden;
+    }
+
+    100%{
+        visibility: hidden;
+    }
+}
+
+
+
+
+
+/************************************************/
+.moulaga{
+    height: 100%;
+    background:linear-gradient(to left top,purple, rgb(251, 0, 247));
+
+}
+
+#Nome2{
+    float: right;
+}
+
+.moulaga > p{
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.vittoria{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 99999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000d0;
+}
+
+#pWin{
+    font-size: 5vw;
+    color: white;
+    text-shadow: 1vh 0 0 purple;
+    font-style: italic;
+    font-family: "peffo";
+    margin: 0px;
+}
+
+#pWin > strong{
+    font-size: 10vw;
+    font-style: italic;
+    font-family: "peffo";
+}
+
+.animtitolo{
+    animation: title 2s normal;
+}
+
+@keyframes title {
+    0%{
+        opacity: 0;
+        top: -100vh;
+    }
+
+    100%{
+        opacity: 1;
+        top: 0vh;
+    }
+}
+
+#btnReady{
+	background-color: #800080d0;
+	border: none;
+	color: white;
+	font-family: "peffo";
+	font-size: 2vw;
+	height: 10vh;
+	width: 20vw;
+	border-radius: 2vw;
+}
+
+#btnReady:hover{
+	background-color: #1a2639d0;
+}

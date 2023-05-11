@@ -1,0 +1,24 @@
+.material-symbols-outlined{
+    color: purple;
+    font-size: 30px;
+}
+
+.arrow-down{
+    vertical-align: center;
+    color: white;
+    transition-duration: 0.5s;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+    rotate: -90deg;
+}
+
+.arrow-up{
+    vertical-align: center;
+    color: white;
+    transition-duration: 0.5s;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+    rotate: 90deg;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Amogus Battle</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <script src="js/menu.js"></script>
+    <script src="js/dati.js"></script>
+    <script src="js/pagine.js"></script>
+    <script src="js/store.js"></script>
+</head>
+<body>
+    <canvas id="spazio" height="2000" width="2000"></canvas>
+    <div class="tracciato">
+    </div>
+    <main>
+        <div id="animeSfondo">
+        </div>
+        <img src="img/elementi/logo.png">
+    </main>
+    <div class="pianeti">
+        <div class="btn-planet" id="btnStore" onclick="pag(0)"> <!-- style="left: -18vw; top: -100%;" -->
+            <img src="img/elementi/pianeta1.png">
+            <div class="btn-icon">
+                <span class="material-symbols-outlined">
+                    store
+                </span>
+            </div>
+            <span class="btn-title">
+                STORE
+            </span>
+        </div>
+        <div class="btn-planet" id="btnPlay" onclick="pag(1)"> <!-- style="left: 10vw; top: 30%;" -->
+            <img src="img/elementi/pianeta2.png">
+            <div class="btn-icon">
+                <span class="material-symbols-outlined">
+                    swords
+                </span>
+            </div>
+            <span class="btn-title">
+                PLAY
+            </span>
+        </div> 
+        <div class="btn-planet" id="btnOption" onclick="pag(2)"> <!-- style="left: -18vw; top: 150%;" -->
+            <img src="img/elementi/pianeta3.png">
+            <div class="btn-icon">
+                <span class="material-symbols-outlined">
+                    settings
+                </span>
+            </div>
+            <span class="btn-title">
+                OPTIONS
+            </span>
+        </div>
+        <span class="material-symbols-outlined arrow-down" onclick="change(1)">
+            arrow_back_ios
+        </span>
+        <span class="material-symbols-outlined arrow-up" onclick="change(0)">
+            arrow_back_ios
+        </span>
+    </div>
+</body>
+</html>

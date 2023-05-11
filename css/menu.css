@@ -1,0 +1,250 @@
+@font-face{
+    font-family: "NewFont1";
+    src: url(../font/IntroDemo-BlackCAPS.ttf);
+}
+
+body{
+    height: 100vh;
+    margin: 0px;
+    /*background-color: rgb(12, 12, 12);*/
+    /*background-image: url("../img/vecteezy_space-game-background-neon-night-alien-landscape_16961935.jpg");*/ 
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    background: linear-gradient(to right bottom, rgb(108, 108, 109), rgb(2, 2, 26));
+}
+
+#spazio{
+    height: 150vw;
+    width: 150vw;
+    position: fixed;
+    z-index: -2;
+}
+
+circle:hover{
+    transform: scale(2);
+    transition-duration: 0.5s;
+}
+
+circle{
+    stroke: none;
+    transition-duration: 0.5s;
+}
+/*
+#animeSfondo{
+    height: 200vh;
+    position: absolute;
+    z-index: 0;
+    width: 200vw;
+    background-image: url(../img/patterns2.png);
+    background-size: 10%;
+}*/
+
+main{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0 50vh 50vh 0;
+    background: linear-gradient(to top left, #800080, #150629);
+    position: relative;
+    box-shadow: 0 0 20px rgb(15, 15, 15);
+    overflow: hidden;
+}
+
+main > img{
+    width: 50%;
+    height: auto;
+    /*padding-bottom: 10%;*/
+    z-index: 1;
+}
+
+.pianeti{
+    width: 40%;
+    height: 100%;
+    position: relative;
+    /*overflow: hidden;*/
+}
+
+.tracciato{
+    position: fixed;
+    height: 100%;
+    border-radius: 0 100vh 100vh 0;
+    width: 77%;
+    z-index: -1;
+    border: 3vw dashed white;
+}
+
+.btn-planet{    
+    position: absolute;
+    height: 40%;
+    width: 60%;
+    /*height: 50vh;
+    width: 50vh;*/
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /*transition-duration: 2s;*/
+    z-index: 1;
+}
+
+#btnStore > img, #btnPlay > img, #btnOption > img{
+    position: absolute;
+    /*height: 120%;
+    width: auto;*/
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+.pianeti > .arrow-down{
+    font-size: 20vh;
+    color: white;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    text-shadow: 0 0 10px gray;
+}
+
+.pianeti > .arrow-up{
+    font-size: 20vh;
+    color: white;
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    text-shadow: 0 0 10px gray;
+}
+
+.pianeti > .arrow-down:hover, .pianeti > .arrow-up:hover{
+    transform: scale(1.2);
+}
+
+
+.btn-icon > .material-symbols-outlined{
+    font-size: 3vw;
+}
+
+.btn-planet:nth-child(2):hover> .btn-icon > .material-symbols-outlined{
+    animation: scaleRotate 1s infinite;
+}
+
+.btn-planet:first-child:hover > .btn-icon > .material-symbols-outlined{
+    animation: vibration 1s infinite;
+}
+
+.btn-planet:nth-child(3):hover > .btn-icon > .material-symbols-outlined{
+    animation: rotate 1s infinite;
+}
+
+.btn-planet:first-child{
+    left: -150%;
+    top: -100%;
+}
+
+.btn-planet:nth-child(2){
+    left: 20%;
+    top: 30%;
+}
+
+.btn-planet:nth-child(3){
+    left: 150%;
+    top: -100%;
+}
+
+.btn-title{
+    font-family: "NewFont1";
+    color: white;
+    font-size: 4vw;
+    text-shadow: 0 3px 0px purple;
+}
+
+@media screen and (max-width: 500px){
+    #spazio{
+        height: 150vh;
+        width: 150vh;
+    }
+
+    body{
+        flex-direction: column;
+    }
+
+    main{
+        width: 100%;
+        height: 60%;
+        border-radius: 0 0 50vh 50vh;
+    }
+
+    .pianeti{
+        height: 40%;
+        width: 100%;
+        /*rotate: 90deg;*/
+    }
+
+    .btn-planet{
+        height: 40%;
+        width: 60%;
+    }
+
+    .btn-planet:first-child{
+        left: -150%;
+        top: -100%;
+    }
+
+    .btn-planet:nth-child(2){
+        left: 20%;
+        top: 30%;
+    }
+
+    .btn-planet:nth-child(3){
+        left: 150%;
+        top: -100%;
+    }
+
+    #btnStore > img, #btnPlay > img, #btnOption > img{
+        height: 170%;
+        width: auto;
+    }
+
+    .btn-icon > .material-symbols-outlined{
+        font-size: 4vh;
+    }
+
+    .btn-title{
+        font-size: 5vh;
+        text-shadow: 0 2px 0px purple;
+    }
+
+    .pianeti > .arrow-down{
+        font-size: 10vw;
+        bottom: 5%;
+        right: 5%;
+        rotate: 180deg;
+    }
+
+    .pianeti > .arrow-up{
+        font-size: 10vw;
+        top: auto;
+        bottom: 5%;
+        right: auto;
+        left: 5%;
+        rotate: 0deg;
+    }
+
+    .tracciato{
+        width: 100vw;
+        height: 80vh;
+        border-radius: 0 0 100vh 100vh;
+    }
+}
+
+  
+
+
