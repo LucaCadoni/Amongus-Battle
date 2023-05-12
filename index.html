@@ -6,17 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Amogus Battle</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/menu.css">
     <script src="js/menu.js"></script>
     <script src="js/dati.js"></script>
-    <script src="js/pagine.js"></script>
-    <script src="js/store.js"></script>
 </head>
 <body>
     <canvas id="spazio" height="2000" width="2000"></canvas>
     <div class="tracciato">
+    </div>
+    <div class="nome nomeCont1">
+        <input type="text" id="nome1" placeholder="Giocatore 1" oninput="controllaNome(event, 1)">
+        <p class="money">
+            <span id="money1">5000</span>
+            <span class="material-symbols-outlined">
+                monetization_on
+            </span>
+        </p>
+    </div>
+    <div class="nome nomeCont2">
+        <input type="text" id="nome2" placeholder="Giocatore 2" oninput="controllaNome(event, 2)">
+        <p class="money moneyCont2">
+            <span id="money2"></span>
+            <span class="material-symbols-outlined">
+                monetization_on
+            </span>
+        </p>
     </div>
     <main>
         <div id="animeSfondo">
@@ -24,7 +40,7 @@
         <img src="img/elementi/logo.png">
     </main>
     <div class="pianeti">
-        <div class="btn-planet" id="btnStore" onclick="pag(0)"> <!-- style="left: -18vw; top: -100%;" -->
+        <a class="btn-planet" id="btnStore" target="_blank" onclick="pag(1)"> <!-- style="left: -18vw; top: -100%;" -->
             <img src="img/elementi/pianeta1.png">
             <div class="btn-icon">
                 <span class="material-symbols-outlined">
@@ -34,8 +50,8 @@
             <span class="btn-title">
                 STORE
             </span>
-        </div>
-        <div class="btn-planet" id="btnPlay" onclick="pag(1)"> <!-- style="left: 10vw; top: 30%;" -->
+        </a>
+        <a class="btn-planet" id="btnPlay" onclick="pag(2)"> <!-- style="left: 10vw; top: 30%;" -->
             <img src="img/elementi/pianeta2.png">
             <div class="btn-icon">
                 <span class="material-symbols-outlined">
@@ -45,8 +61,8 @@
             <span class="btn-title">
                 PLAY
             </span>
-        </div> 
-        <div class="btn-planet" id="btnOption" onclick="pag(2)"> <!-- style="left: -18vw; top: 150%;" -->
+        </a> 
+        <a class="btn-planet" id="btnOption" onclick="pag(3)"> <!-- style="left: -18vw; top: 150%;" -->
             <img src="img/elementi/pianeta3.png">
             <div class="btn-icon">
                 <span class="material-symbols-outlined">
@@ -56,7 +72,7 @@
             <span class="btn-title">
                 OPTIONS
             </span>
-        </div>
+        </a>
         <span class="material-symbols-outlined arrow-down" onclick="change(1)">
             arrow_back_ios
         </span>

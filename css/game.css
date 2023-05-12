@@ -25,6 +25,91 @@ body{
     transform: scaleX(-1);
 }
 
+.btnOption{
+    position: fixed;
+    width: 4vw;
+    height: 4vw;
+    border-radius: 2vw;
+    top: 2%;
+    left: 48vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a2639d0;
+    box-shadow: 0 0 10px gray;
+}
+
+.pause{
+    color: white;
+    font-weight: 100;
+}
+
+.sfondoPause{
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 9999;
+    background-color: #000000a0;
+    transition-duration: 1s;
+    transition-property: "opacity";
+}
+
+.menuPause{
+    height: 50%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerPause{
+    height: 20%;
+    width: 100%;
+    border-radius: 2vw 2vw 0 0;
+    background-color: #800080d0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.txtPause{
+    font-size: 2vw;
+    font-family: "peffo";
+    color: white;
+    margin-left: 5%;
+}
+
+.headerPause > .pause{
+    font-weight: 600;
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.bodyPause{
+    height: 80%;
+    width: 100%;
+    border-radius: 0 0 2vw 2vw;
+    background-color: #1a2639d0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+}
+
+.bodyPause > button{
+    border: none;
+    height: 8vh;
+    border-radius: 4vh;
+    background-color: #00000050;
+    width: 80%;
+    color: white;
+    font-family: "peffo";
+    font-size: 1vw; 
+}
+
 .container{
     height: 100%;
     width: 100%;
@@ -33,6 +118,12 @@ body{
     justify-content: space-between;
     flex-direction: column;
     position: relative;
+}
+
+.comandi{
+    font-size: 1.5vw;
+    color: white;
+    font-family: "peffo";
 }
 
 .container > img{
@@ -92,13 +183,13 @@ body{
 .bullet2{
     transform: scaleX(-1);
 }
-
+/*
 .bullet1{
     background-image: url(../img/gun/crab.png);
 }
-
+*/
 .bullet2{
-    background-image: url(../img/gun/hand-grenade.png);
+   transform: scaleX(-1);
 }
 /*
 #btnS1, #btnS2{
@@ -400,7 +491,7 @@ body{
 }
 
 #pWin > strong{
-    font-size: 10vw;
+    font-size: 6vw;
     font-style: italic;
     font-family: "peffo";
 }

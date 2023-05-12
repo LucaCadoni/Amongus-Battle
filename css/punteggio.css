@@ -1,0 +1,67 @@
+body{
+    height: 100vh;
+    margin: 0;
+    background-image: url(../img/sfondi/scelta.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#btnContinua{
+    position: fixed;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.podio{
+    width: 45%;
+    height: 100%;
+    display: flex;
+}
+
+#giocatore1, #giocatore2{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.base{
+    width: 100%;
+    border-radius: 2vw 2vw 0 0;
+}
+
+#giocatore1 > img, #giocatore2 > img{
+    width: 80%;
+    height: auto;
+}
+
+#giocatore1 > .base{
+    background: linear-gradient(to top right,rgb(255, 95, 95), red, rgb(52, 0, 0));
+}
+
+#giocatore2 > .base{
+    background: linear-gradient(to top right,rgb(88, 88, 255), blue, rgb(0, 0, 71));  
+}
+
+.tabella{
+    height: 100%;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#tabPunteggi1, #tabPunteggi2{
+    height: 45%;
+    width: 100%;
+
+}

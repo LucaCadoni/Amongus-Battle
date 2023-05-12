@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/game.css">
+    <script src="js/game.js"></script>
+    <script src="js/dati.js"></script>
+    <title>Amogus Battle</title>
+</head>
+<body>
+   <div class="vittoria" style="display: none;">
+        <h1 id="pWin"></h1>
+        <button id="btnReady" onclick="punteggio()">Classifica</button>
+   </div> 
+   <div class="btnOption" onclick="pause()">
+        <span class="material-symbols-outlined pause">
+            pause
+        </span>
+   </div>
+   <div class="sfondoPause" style="display: none;">
+        <div class="menuPause">
+            <div class="headerPause">
+                <span class="txtPause">PAUSE</span>
+                <span class="material-symbols-outlined pause" onclick="btnRiprendi()">
+                    close
+                </span>
+            </div>
+            <div class="bodyPause">
+                <button onclick="btnRiprendi()">Riprendi</button>
+                <button onclick="btnComandi()">Comandi</button>
+                <button onclick="btnEsci()">Esci</button>
+            </div>
+        </div>
+   </div>
+    <!--Vita-->
+    <div id="barra1">
+        <div class="b1">
+            <div class="vita">
+                <div class="moulaga">
+                </div>
+                <p id="nome1">Giocatore 1</p>
+                <div class="flash"></div>
+            </div>
+        </div>
+        <div class="b2">
+            <div class="punti"></div>
+        </div>
+    </div>
+    <div id="barra2">
+        <div class="b1">
+            <div class="vita">
+                <div class="moulaga">
+                </div>
+                <p id="nome2">Giocatore 2</p>
+                <div class="flash"></div>
+            </div>
+        </div>
+        <div class="b2">
+            <div class="punti"></div>
+        </div>
+    </div>
+   <!--Fine Vita--> 
+
+
+
+    <div id="amogus1">
+        <div class="container">
+            <div id="spawn1"></div>
+            <img src="img/skin/amogus1.png">
+            <div id="base1">
+                
+            </div>
+            <div id="livella1">
+                <div class="rosso"></div>
+                <div class="giallo"></div>
+                <div class="verde"></div>
+                <div class="giallo"></div>
+                <div class="rosso"></div>
+                <span class="puntatore material-symbols-outlined">
+                    change_history
+                </span>
+            </div>
+        </div>
+    </div>
+    <div id="amogus2">
+        <div class="container">
+            <div id="spawn2"></div>
+            <img src="img/skin/amogus2.png">
+            <div id="base2">
+            
+            </div>
+            <div id="livella2">
+                <div class="rosso"></div>
+                <div class="giallo"></div>
+                <div class="verde"></div>
+                <div class="giallo"></div>
+                <div class="rosso"></div>
+                <span class="puntatore material-symbols-outlined">
+                    change_history
+                </span>
+            </div>
+        </div>
+    </div>
+    <div id="conteB1.1">
+        
+    </div>
+    <div id="conteB1.2"> 
+        
+    </div>
+    <div id="conteB2.1">
+        
+    </div>
+    <div id="conteB2.2">
+        
+    </div>
+</body>
+</html>

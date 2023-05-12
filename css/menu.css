@@ -94,6 +94,7 @@ main > img{
     cursor: pointer;
     /*transition-duration: 2s;*/
     z-index: 1;
+    text-decoration: none;
 }
 
 #btnStore > img, #btnPlay > img, #btnOption > img{
@@ -106,20 +107,20 @@ main > img{
 }
 
 .pianeti > .arrow-down{
-    font-size: 20vh;
+    font-size: 5vw;
     color: white;
     position: fixed;
-    bottom: 5%;
-    right: 5%;
+    bottom: 40%;
+    right: 1%;
     text-shadow: 0 0 10px gray;
 }
 
 .pianeti > .arrow-up{
-    font-size: 20vh;
+    font-size: 5vw;
     color: white;
     position: fixed;
-    top: 5%;
-    right: 5%;
+    top: 40%;
+    right: 1%;
     text-shadow: 0 0 10px gray;
 }
 
@@ -174,6 +175,10 @@ main > img{
 
     body{
         flex-direction: column;
+    }
+
+    .nome{
+        width: 35%;
     }
 
     main{

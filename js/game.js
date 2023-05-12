@@ -23,18 +23,13 @@ var puntat2 = 0;
 var puntatore;
 var intPunt1 = null;
 var intPunt2 = null;
-var vita1 = 100;//variabile per gestire la vita del giocatore 1
+var vita1 = 0;//variabile per gestire la vita del giocatore 1
 var vita2 = 100;//variabile per gestire la vita del giocatore 2
 
 var dannoArma1 = 20;//variavile per gestire il danno che fa l'arma del giocatore 1
 var dannoArma2 = 20;//variavile per gestire il danno che fa l'arma del giocatore 2
 
 var moulaga; // barre  della vita
-var punteggio1 = 0;
-var punteggio2 = 0;
-
-var nome = ["Luca", "Andrea"];
-
 var mq1 = [
     [0,0],
     [0,0],
@@ -58,8 +53,11 @@ var mq2Index = 0;
 
 
 var gioco;
+var vincitore;
 
 window.addEventListener("load", function genera() {
+    initDati();
+    initDatiGame();
     puntatore = document.getElementsByClassName("puntatore");
     amogus1 = document.getElementById("amogus1");
     amogus2 = document.getElementById("amogus2");
@@ -71,12 +69,21 @@ window.addEventListener("load", function genera() {
     btn2.disabled = true;*/
     img1 = document.querySelector("#amogus1 > .container > img");
     img2 = document.querySelector("#amogus2 > .container > img");
-    
+    img1.src="img/skin/amogus" + skin1[scelta1] + ".png";
+    img2.src="img/skin/amogus" + skin2[scelta2] + ".png";
+
+    document.getElementById("nome1").innerText = nomi[0];
+    document.getElementById("nome2").innerText = nomi[1];
+
     for(let i=0;i<10;i++){
         bullet1.push(document.createElement("div"));
         bullet2.push(document.createElement("div"));
         bullet1[i].classList.add("bullet1");
         bullet2[i].classList.add("bullet2");
+        let j = parseInt(skin1[scelta1]);
+        bullet1[i].style.backgroundImage = "url(img/weap/weap" + danno[j][1] + ".png)";
+        j = parseInt(skin2[scelta2]);
+        bullet2[i].style.backgroundImage = "url(img/weap/weap" + danno[j][1] + ".png)";
     }
 
     moulaga = document.getElementsByClassName("moulaga");
@@ -181,18 +188,29 @@ window.addEventListener("keydown", function controlla(e){
                             let dir = Math.floor(Math.random()*10);
                             (dir < 5 ? calcolaTrag(4, 3, 4, 100, 1, mq1Index) : calcolaTrag(4, 3, 4, -100, 1, mq1Index));
                             dannoArma1 = 0;
+                            punteggio1.push([0, parseInt(Date.now().toString().substring(0, 3))]);
                         }else if((leftP > 5 && leftP <= 35) || (leftP >= 50 && leftP < 80)){
                             calcolaTrag(4, 3, 4, 3, 1, mq1Index);
-                            dannoArma1 = 5; 
+                            let j = skin1[scelta1];
+                            dannoArma1 = danno[j][0] / 2;
+                            punteggio1.push([50, parseInt(Date.now().toString().substring(0, 3))]);
                         }else{
                             calcolaTrag(4, 3, 4, 3, 1, mq1Index);
-                            dannoArma1 = 20;
+                            let j = skin1[scelta1];
+                            dannoArma1 = danno[j][0];
+                            punteggio1.push([100, parseInt(Date.now().toString().substring(0,3))]);
                         }
+                        punteggioLung1++;
                         //animPunt1(puntatore[0], puntat1);
-                        if(colpiRim1 < 5)
+                        if(colpiRim1 < 5){
                             conB1_1.appendChild(bullet1[colpiRim1]);
-                        else
-                            conB1_2.appendChild(bullet1[colpiRim1]);    
+                            let rot = (m*45);
+                            bullet1[colpiRim1].style.rotate = rot + "deg";
+                        }else{
+                            conB1_2.appendChild(bullet1[colpiRim1]);
+                            let rot = (m*45);
+                            bullet1[colpiRim1].style.rotate = rot + "deg";
+                        }    
 
                         //bulletCont = document.getElementsByClassName("bullet1");
                         BulletAnime1(colpiRim1, mq1Index);
@@ -227,18 +245,28 @@ window.addEventListener("keydown", function controlla(e){
                             let dir = Math.floor(Math.random()*10);
                             (dir < 5 ? calcolaTrag(4, 100, 4, 3, 2, mq2Index) : calcolaTrag(4, -100, 4, 3, 2, mq2Index));
                             dannoArma2 = 0;
+                            punteggio2.push([0, parseInt(Date.now().toString().substring(0,3))]);
                         }else if((leftP > 5 && leftP <= 35) || (leftP >= 50 && leftP < 80)){
                             calcolaTrag(4, 3, 4, 3, 2, mq2Index);
-                            dannoArma2 = 5; 
+                            let j = skin2[scelta2];
+                            dannoArma2 = danno[j][0] / 2;
+                            punteggio2.push([50, parseInt(Date.now().toString().substring(0,3))]);
                         }else{
                             calcolaTrag(4, 3, 4, 3, 2, mq2Index);
-                            dannoArma2 = 20;
+                            let j = skin2[scelta2];
+                            dannoArma2 = danno[j][0];
+                            punteggio2.push([100, parseInt(Date.now().toString().substring(0, 3))]);
                         }
-
-                        if(colpiRim2 < 5)
+                        punteggioLung2++;
+                        if(colpiRim2 < 5){
                             conB2_1.appendChild(bullet2[colpiRim2]);
-                        else
+                            let rot = (m*45);
+                            bullet2[colpiRim2].style.rotate = rot + "deg";
+                        }else{
                             conB2_2.appendChild(bullet2[colpiRim2]);
+                            let rot = (m*45);
+                            bullet2[colpiRim2].style.rotate = rot + "deg";
+                        }
 
                         //bulletCont = document.getElementsByClassName("bullet1");
                         BulletAnime2(colpiRim2, mq2Index);
@@ -419,5 +447,124 @@ function vittoria(p){
     cont[0].style.display = "flex";
     cont[0].classList.toggle("animtitolo");
 
-    title.innerHTML = `il Vincitore è <strong style="color: purple">${nome[p]}</strong>`;
+    title.innerHTML = `il Vincitore è <strong style="color: purple">${nomi[p]}</strong>`;
+    vincitore = p;
+}
+
+function pause(){
+    gioco = false;
+
+    let menu = document.querySelector(".sfondoPause");
+    menu.style.opacity = "0";
+    menu.style.display = "flex";
+    menu.style.opacity = "1";
+}
+
+function btnRiprendi(){
+    gioco = true;
+
+    let menu = document.querySelector(".sfondoPause");
+    menu.style.opacity = "0";
+    menu.style.display = "none";
+}
+
+var menuPrec = `
+    <span class="comandi">P1 : tasto "A" (sparo)</span> 
+    <span class="comandi">P1 : tasto "L" (sparo)</span>
+    <button onclick="btnComandi()">Indietro</button>
+`;
+
+var menuAus;
+
+function btnComandi(){
+    let body = document.querySelector(".bodyPause");
+    menuAus = body.innerHTML;
+    body.innerHTML = menuPrec;
+    menuPrec = menuAus;
+}
+
+function btnEsci(){
+    apriAmogusPage("index.html");
+}
+
+var puntTot1 = 0;
+var puntTot2 = 0;
+
+function punteggio(){
+    let tab = ``;
+    let alt1;
+    let alt2;
+    tab1 = creaTabella(punteggio1, punteggioLung1, 1);
+    tab2 = creaTabella(punteggio2, punteggioLung2, 2);
+
+    if(vincitore == 0){
+        alt1 = "50%";
+        alt2 = "25%";
+    }else{
+        alt1 = "25%";
+        alt2 = "50%";
+    }
+
+    let pag = `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="css/punteggio.css">
+                <title>Punteggio</title>
+            </head>
+            <body>
+                <button id="btnContinua">Continua</button>
+                <main>
+                    <div class="podio">
+                        <div id="giocatore1">
+                            <img src="" alt="">
+                            <div class="base" style="height: ${alt1};">
+        
+                            </div>
+                        </div>
+                        <div id="giocatore2">
+                            <img src="" alt="">
+                            <div class="base" style="height: ${alt2};">
+        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabella">
+                        <table id="tabPunteggi1">
+                            ${tab1}
+                        </table>
+                        <table id="tabPunteggi2">
+                            ${tab2}
+                        </table>
+                    </div>
+                </main>
+            </body>
+            </html>
+        `;
+
+        let newPag = window.open("");
+        newPag.document.write(pag);
+}
+
+function creaTabella(punteggio, punteggioLung, x){
+    let str = ``;
+
+    for(let x=0; x<punteggioLung; x++){
+        str += `
+            <tr>
+                <td>${punteggio[x][0]}</td>
+                <td>${punteggio[x][1]}</td>
+            </tr>
+        `;
+
+        if(x == 1)
+            puntTot1+=punteggio[x][0];
+        else
+            puntTot2+=punteggio[x][0];
+    }
+
+    return str;
 }

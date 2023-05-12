@@ -4,7 +4,7 @@ var su;
 var giu;
 const colori = ["#ffffff", "#CCCCFF", "#FFA500", "#ADD8E6"];
 var misure = ["-18vw", "-100%", "10vw", "30%", "-18vw", "150%"];
-var tempoInit = -1;
+var tempoInit = -2000;
 var windowSizeAtt;
 var windowSizePrec;
 var contPianeti;
@@ -12,6 +12,7 @@ var canvas;
 var ctx;
 var contAmogus;
 var imgAmogus;
+
 
 window.onselectstart = function(){return false;}
 
@@ -47,13 +48,31 @@ function controllaSize(){
 }
 
 window.addEventListener("load", function init(){
+    if(window.location.search != ""){
+        initDati();
+    }
+    else{
+        nomi[0] = "P1";
+        nomi[1] = "P2";
+        soldi[0] = "100";
+        soldi[1] = "100";
+        skin1 = [1, 2];
+        skin2 = [1, 2];
+    }
+
     su = document.querySelector(".arrow-up");
     giu = document.querySelector(".arrow-down");
     btn = document.getElementsByClassName("btn-planet");
+    document.getElementById("nome1").value = nomi[0];
+    document.getElementById("nome2").value = nomi[1];
+    document.getElementById("money1").innerText = soldi[0];
+    document.getElementById("money2").innerText = soldi[1];
+
     /*contPianeti = document.querySelector(".pianeti");*/
     windowSizeAtt = window.innerWidth;
     (windowSizeAtt > 500 ? windowSizePrec = 500 : windowSizePrec = 501);
     controllaSize();
+
     /*spostaPianeti(btn);*/
     canvas = document.getElementById("spazio");
     ctx = canvas.getContext('2d');
@@ -80,6 +99,8 @@ function spostaPianeti(btn){
         }, 10, i);
         j += 2;
     }
+
+    tempoInit = -2000;
 }
 
 
@@ -134,7 +155,6 @@ function change(d){
 }
 
 function animeIndietro(){
-    t = Date.now;
     if(Date.now() >= tempoInit + 2000){
         btn[posAttuale - 1].style.left = misure[2];
         btn[posAttuale - 1].style.top = misure[3];
@@ -158,15 +178,15 @@ function animeAvanti(){
     }
 }
 
-function pag(scelta){
-    switch(scelta){
-        case 0:
-            let pag = window.open("store.html", "_blanckd");
-            pag.document.write(store);
-            pag.addEventListener("load", function(){
-                add();
-                p1 = document.getElementById("scritta1");
-            });
-            break;
+function controllaNome(e, i){
+    let input = document.getElementById("nome" + i);
+
+    console.log(e.keyCode);
+
+    if(input.value.length > 10){
+        input.value = input.value.substring(0, input.value.length - 1);
     }
+
+    nomi[i-1] = input.value;
 }
+

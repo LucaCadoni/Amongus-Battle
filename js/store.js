@@ -23,13 +23,27 @@ var msg3 = [
     "Clicca qui se sei scarso"
 ];
 
-console.log("daye");
+
+window.addEventListener("load", function add(){
+    initDati();
+    console.log(msg1);
+    sugg(".s1", msg1);
+    sugg(".s2", msg2);
+    sugg(".s3", msg3);
+    container1 = document.getElementById("animeSkin"); 
+    container2 = document.getElementById("animeWeap"); 
+    img1 = document.querySelector("#animeSkin > img");
+    img2 = document.querySelector("#animeWeap > img");
+    console.log(img1);
+    changeskin();
+});
 
 var p1;
 
 function sugg(n, vet){
-    console.log(p1);
     let cas = Math.floor(Math.random()*3);
+
+    let p1 = document.querySelector(n + " > p");
 
     p1.innerText = vet[cas];
 }
@@ -51,16 +65,3 @@ function changeskin(){
     setTimeout(changeskin, 5000);
 
 }
-
-
-/*window.addEventListener("load", function */function add(){
-    console.log(msg1);
-    sugg(".s1", msg1);
-    sugg(".s2", msg2);
-    sugg(".s3", msg3);
-    container1 = document.getElementById("animeSkin"); 
-    container2 = document.getElementById("animeWeap"); 
-    img1 = document.querySelector("#animeSkin > img");
-    img2 = document.querySelector("#animeWeap > img");
-    changeskin();
-}/*)*/;
