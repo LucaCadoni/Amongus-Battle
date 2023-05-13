@@ -54,8 +54,29 @@ var punteggio2 = [];
 var punteggioLung1 = 0;
 var punteggioLung2 = 0;
 
+// dati pag finale punteggio
+var puntTot1 = 0;
+var puntTot2 = 0;
+var vincitore;
+
+function creaStrPunteggio(puntegg, n){
+    let str="null";
+
+    if(n > 0){
+        str = "";
+        for(let i=0; i<n - 1; i++){
+            str += puntegg[i][0].toString() + ";" + puntegg[i][1].toString() + ",";
+        }
+
+        str += puntegg[n-1][0].toString() + ";" + puntegg[n-1][1].toString();
+    }
+
+    return str;
+}
+
 
 function initDati(){
+    console.log("data loading --> success");
     let query = window.location.search;
     query = query.replace("?", "");
     vetDati = query.split("&");
@@ -70,6 +91,14 @@ function initDati(){
 function initDatiGame(){
     scelta1 = parseInt(vetDati[6]);
     scelta2 = parseInt(vetDati[7]);
+}
+
+function initDatiPunteggio(){
+    vetTab1 = vetDati[6].split(",");
+    vetTab2 = vetDati[7].split(",");
+    vincitore = vetDati[8];
+    scelta1 = vetDati[9];
+    scelta2 = vetDati[10];
 }
 
 function creaStrSkin(skin){
@@ -89,7 +118,11 @@ function apriAmogusPage(pag){
 }
 
 function apriAmogusPageGame(pag){
-    window.open(window.open(pag + "?" + nomi[0] + "&" + nomi[1] + "&" + soldi[0] + "&" + soldi[1] + "&" + creaStrSkin(skin1) + "&" + creaStrSkin(skin2) + "&" + scelta1 + "&" + scelta2));
+    window.open(pag + "?" + nomi[0] + "&" + nomi[1] + "&" + soldi[0] + "&" + soldi[1] + "&" + creaStrSkin(skin1) + "&" + creaStrSkin(skin2) + "&" + scelta1 + "&" + scelta2);
+}
+
+function apriAmogusPagePunteggio(pag){
+    pagPunteggio = window.open(pag + "?" + nomi[0] + "&" + nomi[1] + "&" + soldi[0] + "&" + soldi[1] + "&" + creaStrSkin(skin1) + "&" + creaStrSkin(skin2) + "&" + creaStrPunteggio(punteggio1, punteggioLung1) + "&" + creaStrPunteggio(punteggio2, punteggioLung2) + "&" + vincitore + "&" + scelta1 + "&" + scelta2);
 }
 
 function trovaPos(i, skin){
@@ -116,7 +149,7 @@ function pag(scelta){
                 apriAmogusPage("sceltaS.html");
             break;
         case 3:
-                window.open("option.html");
+                apriAmogusPage("options.html");
             break;
         case 4:
                 apriAmogusPageGame("game.html");

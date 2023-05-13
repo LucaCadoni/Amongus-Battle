@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/options.css">
+	<link rel="icon" href="img/elementi/icon.png">
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<script src="js/dati.js"></script>
+	<title>Options</title>
+</head>
+
+<body onload="initDati()">
+	<header>
+		<form>
+			<button onclick="pag(0)">
+				<span class="material-symbols-outlined">
+					arrow_back
+				</span>
+			</button>
+		</form>
+		<h1>Options</h1>
+	</header>
+	<main>
+		<h2>Game Rules</h2>
+		<div id="game-rule">
+			<div class="bottone">
+				<p>1. Scelte Iniziali</p>
+				<div class="descrizione">
+					<p>Dopo aver cliccato il pianeta Play</p>
+					<p>
+						dovrete scegliere i vostri personaggi e poi gipcare
+					</p>
+					<p>(per proseguire nelle prime due scelte entrambi i giocatori dovranno premere pronto.)</p>
+				</div>
+			</div>
+			<div class="bottone">
+				<p>2. Comandi</p>
+				<div class="descrizione">
+					<p>Per giocare dovrete utilizzare i vostri comandi che contengono:</p>
+					<ul>
+						<li>Una livella di precisione</li>
+						<li>Un caricatore per i colpi a disposizione (di 3 secondi)</li>
+						<li>il tasto <button>A</button> per sparare con il giocatore 1</li>
+						<li>il tasto <button>L</button> per sparare con il giocatore 2</li>
+					</ul>
+					<p>
+						Per ottenere un danno più efficace dovrete essere in grado di premere
+						il bottone quando la livella srà nella zona verde che indica la precisione massima
+						più vi allontanerete da questa zona, peggiore sarà il vostro colpo.
+					</p>
+				</div>
+			</div>
+			<!--<div class="bottone">
+				<p>3. Arma</p>
+				<div class="descrizione">
+					<p>
+						Quando sceglierete l'arma nelle Scelte iniziali vi verranno mostrate tre
+						caratteristiche:
+					</p>
+					<ul>
+						<li><i>Forza</i> : efficacia dei colpi</li>
+						<li><i>Velocità di ricarica</i> : tempo necessario per riempire lo slot dei colpi</li>
+						<li><i>Precisione</i> : velocità della livella di precisione</li>
+					</ul>
+
+				</div>
+			</div>-->
+			<div class="bottone">
+				<p>4. Vittoria</p>
+				<div class="descrizione">
+					<p>
+						Vince il giocatore che riuscirà ad abbattere l'altro che ricevera un
+						numero di coppe e monete proporzionato in base hai punti conquistati durante
+						la battaglia.
+						Ora Siete pronti Buon divertimento!!!
+					</p>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<h2>Other Options</h2>
+		<div class="option">
+			<p>Music</p>
+			<select>
+				<option>Yes</option>
+				<option>No</option>
+			</select>
+		</div>
+		<div class="option">
+			<p>Sound</p>
+			<select>
+				<option>Yes</option>
+				<option>No</option>
+			</select>
+		</div>
+		<div class="option">
+			<p>Theme</p>
+			<div class="bottoni">
+				<button id="dark">
+					<span class="material-symbols-outlined">
+						dark_mode
+					</span>
+				</button>
+				<button id="light">
+					<span class="material-symbols-outlined">
+						light_mode
+					</span>
+				</button>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+#slot{
+    height: 500px;
+    width: 400px;
+    border: 2px solid black;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#space1, #space2, #space3{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to left bottom, blue, red);
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#space1{
+    top: -200%;
+}
+
+#space2{
+    top: -100%;
+}
+
+#imgSlot1, #imgSlot2, #imgSlot3{
+    height: 60%;
+    width: auto;
+}
+
+.animate1{
+    animation: card1 linear 1s infinite;
+}
+
+.animate2{
+    animation: card2 linear 1s infinite;
+}
+
+@keyframes card1{
+    0%{
+        top: 0%;
+    }
+
+    100%{
+        top: 100%;
+    }
+}
+
+@keyframes card2 {
+    0%{
+        top: -100%;
+    }
+
+    100%{
+        top: 0%;
+    }
+}

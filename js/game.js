@@ -1,3 +1,11 @@
+/**
+ * 
+ *      DOPO 5 COLPI L'ARMA IMPIEGA 2 SECONDI PER RICARICARSI
+ *      NON è UN BUG
+*/
+
+
+
 var amogus1;
 var amogus2;
 var spawn1; 
@@ -53,7 +61,6 @@ var mq2Index = 0;
 
 
 var gioco;
-var vincitore;
 
 window.addEventListener("load", function genera() {
     initDati();
@@ -487,84 +494,6 @@ function btnEsci(){
     apriAmogusPage("index.html");
 }
 
-var puntTot1 = 0;
-var puntTot2 = 0;
-
 function punteggio(){
-    let tab = ``;
-    let alt1;
-    let alt2;
-    tab1 = creaTabella(punteggio1, punteggioLung1, 1);
-    tab2 = creaTabella(punteggio2, punteggioLung2, 2);
-
-    if(vincitore == 0){
-        alt1 = "50%";
-        alt2 = "25%";
-    }else{
-        alt1 = "25%";
-        alt2 = "50%";
-    }
-
-    let pag = `
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="stylesheet" href="css/punteggio.css">
-                <title>Punteggio</title>
-            </head>
-            <body>
-                <button id="btnContinua">Continua</button>
-                <main>
-                    <div class="podio">
-                        <div id="giocatore1">
-                            <img src="" alt="">
-                            <div class="base" style="height: ${alt1};">
-        
-                            </div>
-                        </div>
-                        <div id="giocatore2">
-                            <img src="" alt="">
-                            <div class="base" style="height: ${alt2};">
-        
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tabella">
-                        <table id="tabPunteggi1">
-                            ${tab1}
-                        </table>
-                        <table id="tabPunteggi2">
-                            ${tab2}
-                        </table>
-                    </div>
-                </main>
-            </body>
-            </html>
-        `;
-
-        let newPag = window.open("");
-        newPag.document.write(pag);
-}
-
-function creaTabella(punteggio, punteggioLung, x){
-    let str = ``;
-
-    for(let x=0; x<punteggioLung; x++){
-        str += `
-            <tr>
-                <td>${punteggio[x][0]}</td>
-                <td>${punteggio[x][1]}</td>
-            </tr>
-        `;
-
-        if(x == 1)
-            puntTot1+=punteggio[x][0];
-        else
-            puntTot2+=punteggio[x][0];
-    }
-
-    return str;
+    apriAmogusPagePunteggio("punteggio.html");
 }

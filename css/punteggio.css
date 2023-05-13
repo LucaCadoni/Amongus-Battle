@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "peffo";
+    src: url(../font/IntroDemo-BlackCAPS.ttf);
+}
+
 body{
     height: 100vh;
     margin: 0;
@@ -18,7 +23,7 @@ main{
     justify-content: space-around;
 }
 
-.podio{
+.contPodio{
     width: 45%;
     height: 100%;
     display: flex;
@@ -36,19 +41,23 @@ main{
 .base{
     width: 100%;
     border-radius: 2vw 2vw 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #giocatore1 > img, #giocatore2 > img{
-    width: 80%;
+    width: 60%;
     height: auto;
 }
 
 #giocatore1 > .base{
-    background: linear-gradient(to top right,rgb(255, 95, 95), red, rgb(52, 0, 0));
+    background: linear-gradient(to top right,rgb(98, 1, 1), red);
 }
 
 #giocatore2 > .base{
-    background: linear-gradient(to top right,rgb(88, 88, 255), blue, rgb(0, 0, 71));  
+    background: linear-gradient(to top right,rgb(0, 0, 87), blue);  
 }
 
 .tabella{
@@ -60,8 +69,120 @@ main{
     justify-content: space-around;
 }
 
-#tabPunteggi1, #tabPunteggi2{
+.contTabella{
     height: 45%;
     width: 100%;
+    overflow-y: scroll;
+}
+
+.contTabella::-webkit-scrollbar{
+    background-color: transparent;
+
+}
+
+.contTabella::-webkit-scrollbar-thumb{
+    background-color: #1a2639d0;
+    border-radius: 10px;
+}
+
+thead > tr > td{
+    background-color: #1a2639;
+}
+
+tbody{
+    height: fit-content;
+}
+
+#tab1, #tab2{
+    width: 100%;
+    border-collapse:collapse;
+}
+
+tr{
+    width: 100%;
+    height: 10vh;
+}
+
+td{
+    height: 100%;
+    width: 45%;
+    font-family: "peffo";
+    color: white;
+    font-size: 1.5vw;
+    padding: 5%;
+}
+
+.base > span{
+    font-family: "peffo";
+    color: white;
+    font-size: 1.5vw;
+}
+
+.puntTitle{
+    margin: 0;
+    padding: 0;
+    font-family: "peffo";
+    color: #1a2639;
+    font-size: 2vw;
+}
+
+#monete1, #monete2{
+    display: flex;
+    align-items: center;
+    color: black;
+    width: fit-content;
+}
+
+.money{
+    font-size: 1.5vw;
+    color: purple;
+    padding-left: 5%;
+}
+
+#btnReady{
+	background-color: #800080d0;
+	border: none;
+	color: white;
+	font-family: "peffo";
+	font-size: 1vw;
+	position: absolute;
+	left: 2%;
+	height: 5%;
+	width: 10%;
+	top: 2%;
+	border-radius: 1vw;
+}
+
+#btnReady:hover{
+	background-color: #1a2639d0;
+}
+
+@media screen and (max-width: 500px){
+    main{
+        flex-direction: column;
+    }
+
+    .contPodio{
+        width: 80%;
+        height: 45%;
+    }
+
+    .tabella{
+        height: 45%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .contTabella{
+        height: 100%;
+        width: 45%;
+    }
+
+    .contTabella::-webkit-scrollbar{
+        display: none;
+    }
 
 }
